@@ -1,130 +1,113 @@
 
-
 # RescueAlert
 
-Sistema de monitoramento de falhas de energia com impacto cibernético, voltado para o atendimento de pessoas vulneráveis em situações de emergência. Desenvolvido como parte de um projeto acadêmico em C#, utilizando arquitetura em camadas e boas práticas de programação.
+**RescueAlert** é um sistema de monitoramento de falhas de energia com impacto cibernético, voltado ao atendimento de populações vulneráveis em situações emergenciais, como apagões e desastres naturais. A aplicação foi desenvolvida em C# utilizando arquitetura em camadas e bibliotecas de classes.
 
 ---
 
-## Objetivo
+##  Finalidade do Sistema
 
-Desenvolver um sistema que apoie a resposta emergencial em casos de apagões, desastres naturais e falhas urbanas, focando no atendimento de idosos, pessoas com deficiência e pessoas em situação de pobreza. A solução permite o registro de falhas, geração de alertas e análise de status em tempo real.
+O objetivo do RescueAlert é facilitar a comunicação e organização em cenários críticos, garantindo que pessoas em risco — como idosos, pessoas com deficiência e em situação de pobreza — possam ser localizadas e associadas a alertas de emergência durante falhas de energia.
 
----
+O sistema permite:
 
-## Funcionalidades
-
-- Autenticação obrigatória para operadores
-- Cadastro de pessoas vulneráveis (classificadas por tipo)
-- Registro de falhas de energia
-- Geração de alertas emergenciais associando pessoas a falhas
-- Relatórios de status dos alertas
-- Listagem de falhas e pessoas registradas
-- Registro de logs de eventos em arquivo `.txt`
-- Validação de entradas com `try-catch` (datas, campos vazios, etc.)
+- Registrar falhas de energia por região.
+- Cadastrar pessoas vulneráveis com base em sua condição.
+- Gerar alertas relacionando pessoas e falhas específicas.
+- Acompanhar relatórios de status dos alertas.
+- Controlar o acesso via login obrigatório.
+- Registrar todos os eventos em arquivos de log.
 
 ---
 
-## Arquitetura e Estrutura
+##  Instruções de Execução
 
-O projeto segue a arquitetura em camadas, com separação em bibliotecas de classes:
+### Requisitos:
+- .NET 6 SDK ou superior
+- Visual Studio 2022 ou superior (recomendado)
+- Sistema Operacional: Windows
 
-RescueAlert
-├── ConsoleApp              # Interface principal em console
-├── ModelLibrary           # Modelos de dados (entidades)
-├── RepositoryLibrary      # Simulação de persistência (List)
-├── ControllerLibrary      # Lógica de negócio e validações
+### Passos para rodar a aplicação:
 
-Cada camada possui responsabilidade única, promovendo coesão e reutilização.
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/RescueAlert.git
+```
 
----
+2. Abra a solução `RescueAlert.sln` no Visual Studio.
 
-## Regras de Negócio
+3. Defina o projeto `RescueAlert.ConsoleApp` como *Startup Project*.
 
-- Um alerta só pode ser gerado se a pessoa e a falha existirem.
-- Pessoas devem ser corretamente classificadas (idoso, deficiência, pobreza).
-- Somente operadores autenticados podem acessar o sistema.
-- Erros de entrada são tratados com validações e mensagens claras.
+4. Execute a aplicação (Ctrl + F5).
 
----
-
-## Como Executar
-
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/RescueAlert.git
-
-	2.	Abra a solução no Visual Studio 2022 ou superior.
-	3.	Defina o projeto RescueAlert.ConsoleApp como Startup Project.
-	4.	Execute a aplicação (Ctrl + F5).
-	5.	Use as credenciais abaixo para fazer login e acessar o sistema.
-
-⸻
-
-Credenciais de Acesso
-
-Estas são as credenciais padrão embutidas na aplicação para fins de demonstração:
-
+5. Faça login com as seguintes credenciais:
+```
 Usuário: admin
-Senha: admin123
+Senha: 1234
+```
 
-Você pode alterar ou adicionar mais usuários diretamente no código, na classe UsuarioRepository.
+---
 
-⸻
+##  Dependências
 
-Requisitos
-	•	.NET 6 SDK
-	•	Visual Studio 2022
-	•	Sistema operacional Windows (preferencialmente)
+O projeto foi desenvolvido apenas com bibliotecas padrão do .NET. Não há dependências externas a serem instaladas.
 
-⸻
+---
 
-Estrutura de Pastas
+##  Estrutura de Pastas
 
+```
 RescueAlert/
-├── ConsoleApp/
-│   └── Program.cs         # Menu e controle da aplicação
-│   └── log_eventos.txt    # Logs de atividades do sistema
-├── ControllerLibrary/
-│   └── Controllers/       # Regras de negócio e validações
-├── ModelLibrary/
-│   └── Models/            # Entidades: Pessoa, Falha, Alerta
-├── RepositoryLibrary/
-│   └── Repositories/      # Simulação de banco (List<T>)
+├── ConsoleApp/                 # Interface do usuário via console
+│   └── Program.cs              # Menu principal da aplicação
+│   └── log_eventos.txt         # Arquivo de logs gerado automaticamente
+│
+├── ControllerLibrary/          # Camada de lógica e validações
+│   └── Controllers/
+│       └── PessoaController.cs
+│       └── FalhaController.cs
+│       └── AlertaController.cs
+│       └── UsuarioController.cs
+│
+├── ModelLibrary/               # Modelos de dados
+│   └── Models/
+│       └── Pessoa.cs
+│       └── Falha.cs
+│       └── Alerta.cs
+│       └── Usuario.cs
+│
+├── RepositoryLibrary/          # Simulação de persistência
+│   └── Repositories/
+│       └── PessoaRepository.cs
+│       └── FalhaRepository.cs
+│       └── AlertaRepository.cs
+│       └── UsuarioRepository.cs
+│
+├── RescueAlert.sln             # Solução Visual Studio
 ├── README.md
+```
+
+---
+
+##  Observações Finais
+
+Este projeto é acadêmico e não realiza persistência real em banco de dados. Toda a simulação é feita com `List<T>` em memória. A arquitetura em camadas foi aplicada para promover organização, reutilização e escalabilidade do código.
+
+O arquivo `log_eventos.txt` registra todas as ações executadas, facilitando a auditoria do sistema em tempo de execução.
+
+---
 
 
-⸻
-
-Tecnologias Utilizadas
-
-Tecnologia	Finalidade
-C# / .NET 6	Lógica da aplicação
-ConsoleApp	Interface de linha de comando
-Bibliotecas de Classes	Modularização e separação de camadas
-List	Simulação de persistência na memória
-File.AppendAllText	Registro de logs
 
 
-⸻
-
-Conteúdo Acadêmico Aplicado
-	•	Programação Orientada a Objetos (POO)
-	•	Encapsulamento e herança
-	•	Arquitetura em camadas
-	•	Tratamento de exceções (try-catch)
-	•	Validação de entrada
-	•	Boas práticas de código limpo
-
-⸻
-
-Autores
+## Autores
 
 Projeto desenvolvido por:
-	•	ANNY CAROLINA ANDRADE DIAS - RM:98295 
-	•	HENRIQUE LIMA - RM:551528
-	•	SOFIA AMORIM COUTINHO - RM:552534 
+- ANNY CAROLINA ANDRADE DIAS - RM:98295 
+- HENRIQUE LIMA - RM:551528
+- SOFIA AMORIM COUTINHO - RM:552534 
 
 
-⸻
+---
+
 
