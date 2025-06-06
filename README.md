@@ -4,6 +4,12 @@
 **RescueAlert** é um sistema de monitoramento de falhas de energia com impacto cibernético, voltado ao atendimento de populações vulneráveis em situações emergenciais, como apagões e desastres naturais. A aplicação foi desenvolvida em C# utilizando arquitetura em camadas e bibliotecas de classes.
 
 ---
+## Demonstração do Projeto
+Assista ao vídeo de apresentação do sistema no YouTube:
+
+[![Assista no YouTube](https://img.shields.io/badge/Ver%20no-YouTube-red?logo=youtube)]([https://www.youtube.com/seu-link-aqui](https://youtu.be/vv2iH_Ovv6I))
+
+---
 
 ##  Finalidade do Sistema
 
