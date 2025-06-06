@@ -56,7 +56,19 @@ Cada camada possui responsabilidade única, promovendo coesão e reutilização.
 
 	2.	Abra a solução no Visual Studio 2022 ou superior.
 	3.	Defina o projeto RescueAlert.ConsoleApp como Startup Project.
-	4.	Execute (Ctrl + F5) e siga as instruções no terminal.
+	4.	Execute a aplicação (Ctrl + F5).
+	5.	Use as credenciais abaixo para fazer login e acessar o sistema.
+
+⸻
+
+Credenciais de Acesso
+
+Estas são as credenciais padrão embutidas na aplicação para fins de demonstração:
+
+Usuário: admin
+Senha: admin123
+
+Você pode alterar ou adicionar mais usuários diretamente no código, na classe UsuarioRepository.
 
 ⸻
 
