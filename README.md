@@ -7,7 +7,7 @@
 ## Demonstração do Projeto
 Assista ao vídeo de apresentação do sistema no YouTube:
 
-[![Assista no YouTube](https://img.shields.io/badge/Ver%20no-YouTube-red?logo=youtube)]([https://www.youtube.com/seu-link-aqui](https://youtu.be/vv2iH_Ovv6I))
+[![Assista no YouTube](https://img.shields.io/badge/Ver%20no-YouTube-red?logo=youtube)](https://www.youtube.com/watch?v=vv2iH_Ovv6I)
 
 ---
 
